@@ -94,8 +94,8 @@ db.toy.findOne({ where: { type: 'ball' } }).then(toy => {
     })
 })
 
-db.toy.findOne({ where: { type: 'ball' } }).then(toy => {
-    toy.getPets().then(pets => {
+db.toy.findOrCreate({ where: { type: 'ball' } }).then(toy => {
+    toy[0].getPets().then(pets => {
         pets.forEach(pet => console.log(pet.get()))
     })
 })
